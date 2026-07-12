@@ -61,3 +61,10 @@
 .res-card h4 {
   margin-top: 8px;
 }
+
+.filter-btn {
+  cursor: pointer;
+  height: 20px;
+  background-color: red;
+  border-radius: 10px 10px 10px 10px;
+}
