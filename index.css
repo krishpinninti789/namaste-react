@@ -132,3 +132,7 @@
   padding: 0px 20px;
   cursor: pointer;
 }
+
+.search-input {
+  height: 20px;
+}
