@@ -3,6 +3,7 @@ import { resList } from "../utils/resConfig";
 import RestaurantCard from "./RestaurantCard";
 import { SWIGGY_API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // Restaurant Container
 const RestaurantContainer = () => {
@@ -73,7 +74,9 @@ const RestaurantContainer = () => {
       <button onClick={handleSearch}>Search</button>
       <div className="res-container">
         {filteredRes.map((resCardData) => (
-          <RestaurantCard resData={resCardData} key={resCardData.id} />
+          <Link to={"/restaurantMenu/" + resCardData.id}>
+            <RestaurantCard resData={resCardData} key={resCardData.id} />
+          </Link>
         ))}
       </div>
     </div>
