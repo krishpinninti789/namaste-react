@@ -74,7 +74,7 @@ const RestaurantContainer = () => {
       <button onClick={handleSearch}>Search</button>
       <div className="res-container">
         {filteredRes.map((resCardData) => (
-          <Link to={"/restaurantMenu/" + resCardData.id}>
+          <Link to={"/restaurantMenu/" + resCardData.id} key={resCardData.id}>
             <RestaurantCard resData={resCardData} key={resCardData.id} />
           </Link>
         ))}
