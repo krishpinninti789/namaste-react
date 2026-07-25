@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const User = ({ name }) => {
   const [count] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      console.log("Hii");
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div>
       <h1>{name}</h1>

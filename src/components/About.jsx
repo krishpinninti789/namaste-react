@@ -17,9 +17,7 @@ class About extends Component {
     return (
       <div>
         This is about page with Users
-        <UserClass name="vamsi" />
-        <UserClass name="gopal" />
-        <UserClass name="Naidu" />
+        <User />
       </div>
     );
   }
