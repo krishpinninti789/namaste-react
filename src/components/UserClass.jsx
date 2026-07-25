@@ -1,10 +1,14 @@
 import React from "react";
 
 class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { name } = this.props;
     return (
       <div>
-        <h1>{this.props.name}</h1>
+        <h1>{name}</h1>
         <h2>2+ years experience</h2>
         <h2>Node</h2>
       </div>
