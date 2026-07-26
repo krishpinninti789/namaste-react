@@ -1,14 +1,18 @@
 import { useState } from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
+
+  const onlineStatus = useOnlineStatus();
   return (
     <div className="header">
       <Logo />
 
       <ul className="nav-items">
+        <li>Online status : {onlineStatus ? "Online" : "Offline"}</li>
         <li>
           <Link to="/">Home</Link>
         </li>

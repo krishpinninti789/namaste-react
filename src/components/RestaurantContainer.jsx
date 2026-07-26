@@ -4,13 +4,18 @@ import RestaurantCard from "./RestaurantCard";
 import { SWIGGY_API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useRestaurants from "../hooks/useRestaurants";
 
 // Restaurant Container
 const RestaurantContainer = () => {
   const [filteredRes, setFilteredRes] = useState([]);
-  const [restaurants, setRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [loading, setLoading] = useState(false);
+
+  const { restaurants, loading } = useRestaurants();
+
+  useEffect(() => {
+    setFilteredRes(restaurants);
+  }, [restaurants]);
 
   const handleSearch = () => {
     setFilteredRes(
@@ -24,33 +29,6 @@ const RestaurantContainer = () => {
       restaurants.filter((resItem) => Number(resItem.avgRating) > 4.4),
     );
   };
-  useEffect(() => {
-    const fetchTopRestaurants = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(SWIGGY_API_URL);
-
-        const json = await response.json();
-
-        const restaurantCard = json?.data?.cards?.find(
-          (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-        );
-
-        const restaurants =
-          restaurantCard?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants ?? [];
-
-        setRestaurants(restaurants.map((restaurant) => restaurant.info));
-        setFilteredRes(restaurants.map((restaurant) => restaurant.info));
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setLoading(false);
-      }
-    };
-
-    fetchTopRestaurants();
-  }, []);
 
   if (loading) {
     return <Shimmer />;
