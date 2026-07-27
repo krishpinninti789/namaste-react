@@ -6,11 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Loading from "./components/Loading";
 
 // App Layout
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="min-h-screen">
       <Header />
       <Outlet />
     </div>
@@ -27,7 +28,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<h1>Loading....</h1>}>
+          <Suspense fallback={<Loading />}>
             <About />
           </Suspense>
         ),
