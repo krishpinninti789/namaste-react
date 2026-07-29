@@ -14,10 +14,10 @@ const RestaurantContainer = () => {
     setFilteredRes(restaurants);
   }, [restaurants]);
 
-  const handleSearch = () => {
+  const handleSearch = (value) => {
     setFilteredRes(
       restaurants.filter((item) =>
-        item.name.toLowerCase().includes(searchInput.toLowerCase()),
+        item.name.toLowerCase().includes(value.toLowerCase()),
       ),
     );
   };
@@ -65,7 +65,11 @@ const RestaurantContainer = () => {
             <input
               className="w-full rounded-full border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:shadow-sm sm:w-80"
               placeholder="Search restaurant"
-              onChange={(e) => setSearchInput(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value;
+                setSearchInput(value);
+                handleSearch(value);
+              }}
               value={searchInput}
             />
             <button
