@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -11,7 +12,9 @@ const RestaurantMenu = () => {
     return (
       <main className="mx-auto flex min-h-[60vh] max-w-5xl items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-slate-200 bg-white px-8 py-6 shadow-sm">
-          <h1 className="text-lg font-semibold text-slate-900">Loading menu...</h1>
+          <h1 className="text-lg font-semibold text-slate-900">
+            Loading menu...
+          </h1>
         </div>
       </main>
     );
@@ -26,6 +29,13 @@ const RestaurantMenu = () => {
   const regularCards = resInfo?.cards?.find((card) => card?.groupedCard)
     ?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
+  const categories = resInfo?.cards
+    ?.find((card) => card?.groupedCard)
+    ?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+    );
   // Item cards
   const itemCards = regularCards
     ?.filter((card) => card?.card?.card?.itemCards)
@@ -54,44 +64,9 @@ const RestaurantMenu = () => {
         <div className="mt-6">
           <h2 className="text-2xl font-semibold text-slate-900">Menu</h2>
 
-          <div className="mt-5 space-y-4">
-            {itemCards?.length ? (
-              itemCards.map((item, index) => {
-                const info = item.card.info;
-
-                return (
-                  <article
-                    key={index}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-200 hover:bg-blue-50/40"
-                  >
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                      <div className="space-y-2">
-                        <h3 className="text-lg font-semibold text-slate-900">
-                          {info.name}
-                        </h3>
-                        {info.description ? (
-                          <p className="max-w-3xl text-sm leading-6 text-slate-500">
-                            {info.description}
-                          </p>
-                        ) : null}
-                      </div>
-
-                      <p className="shrink-0 text-base font-semibold text-slate-900">
-                        ₹
-                        {((info.price || info.defaultPrice || 0) / 100).toFixed(
-                          2,
-                        )}
-                      </p>
-                    </div>
-                  </article>
-                );
-              })
-            ) : (
-              <p className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-500">
-                No menu available.
-              </p>
-            )}
-          </div>
+          {categories.map((c, index) => {
+            return <RestaurantCategory key={index} data={c?.card?.card} />;
+          })}
         </div>
       </section>
     </main>
