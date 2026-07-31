@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
@@ -7,6 +7,12 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
+
+  const [showIndex, setShowIndex] = useState(0);
+
+  const handleSetShowIndex = (index) => {
+    setShowIndex((prev) => (prev === index ? null : index));
+  };
 
   if (!resInfo) {
     return (
@@ -65,7 +71,14 @@ const RestaurantMenu = () => {
           <h2 className="text-2xl font-semibold text-slate-900">Menu</h2>
 
           {categories.map((c, index) => {
-            return <RestaurantCategory key={index} data={c?.card?.card} />;
+            return (
+              <RestaurantCategory
+                key={index}
+                data={c?.card?.card}
+                showIndex={showIndex === index}
+                handleSetExpanded={() => handleSetShowIndex(index)}
+              />
+            );
           })}
         </div>
       </section>
