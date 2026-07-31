@@ -26,7 +26,7 @@ const ItemCard = ({ itemData }) => {
   return (
     <div className="flex w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl">
       {/* Left Section */}
-      <div className="w-72 flex-shrink-0">
+      <div className="w-72 shrink-0">
         <div className="relative">
           <img
             src={
