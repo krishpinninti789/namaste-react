@@ -8,17 +8,21 @@ import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Loading from "./components/Loading";
 import UserContext from "./contexts/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 // App Layout
 const AppLayout = () => {
   const [userName, setUserName] = useState("default user");
   return (
-    <UserContext.Provider value={{ userName, setUserName }}>
-      <div className="min-h-screen">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ userName, setUserName }}>
+        <div className="min-h-screen">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
