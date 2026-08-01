@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -7,14 +7,18 @@ import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Loading from "./components/Loading";
+import UserContext from "./contexts/UserContext";
 
 // App Layout
 const AppLayout = () => {
+  const [userName, setUserName] = useState("default user");
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ userName, setUserName }}>
+      <div className="min-h-screen">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

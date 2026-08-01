@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurants from "../hooks/useRestaurants";
+import UserContext from "../contexts/UserContext";
 
 const RestaurantContainer = () => {
   const [filteredRes, setFilteredRes] = useState([]);
@@ -10,6 +11,7 @@ const RestaurantContainer = () => {
 
   const { restaurants, loading } = useRestaurants();
 
+  const { userName, setUserName } = useContext(UserContext);
   useEffect(() => {
     setFilteredRes(restaurants);
   }, [restaurants]);
@@ -84,6 +86,11 @@ const RestaurantContainer = () => {
             >
               Top rated
             </button>
+            <input
+              className="border rounded-xl p-2"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </div>
         </div>
       </section>
