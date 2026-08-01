@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import UserContext from "../contexts/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
 
   const onlineStatus = useOnlineStatus();
+  const { userName } = useContext(UserContext);
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -24,6 +26,14 @@ const Header = () => {
           </span>
 
           <ul className="flex items-center gap-1 text-sm font-medium text-slate-600">
+            <li>
+              <Link
+                className="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900"
+                to="/"
+              >
+                LoggedIn UserName : {userName}
+              </Link>
+            </li>
             <li>
               <Link
                 className="rounded-full px-4 py-2 transition hover:bg-slate-100 hover:text-slate-900"
