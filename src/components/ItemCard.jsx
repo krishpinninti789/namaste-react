@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/reduxSlices/cartSlice";
 
 const ItemCard = ({ itemData }) => {
   if (!itemData) return null;
@@ -15,6 +17,8 @@ const ItemCard = ({ itemData }) => {
     inStock,
   } = itemData;
 
+  const dispatch = useDispatch();
+
   const rating = ratings?.aggregatedRating?.rating;
   const ratingCount = ratings?.aggregatedRating?.ratingCountV2;
   const vegType = itemAttribute?.vegClassifier;
@@ -22,6 +26,10 @@ const ItemCard = ({ itemData }) => {
 
   const formatPrice = (price) =>
     typeof price === "number" ? `₹${(price / 100).toFixed(0)}` : null;
+
+  const handleAddItemToCart = (itemData) => {
+    dispatch(addItem(itemData));
+  };
 
   return (
     <div className="flex w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl">
@@ -120,6 +128,7 @@ const ItemCard = ({ itemData }) => {
                 ? "bg-orange-500 text-white hover:bg-orange-600"
                 : "cursor-not-allowed bg-gray-300 text-gray-600"
             }`}
+            onClick={() => handleAddItemToCart(itemData)}
           >
             {inStock ? "Add to Cart" : "Unavailable"}
           </button>

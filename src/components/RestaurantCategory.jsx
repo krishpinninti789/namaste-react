@@ -4,11 +4,8 @@ import ItemCard from "./ItemCard";
 
 const RestaurantCategory = ({ data, showIndex, handleSetExpanded }) => {
   return (
-    <div
-      className="m-2 bg-gray-200 p-6 rounded-lg shadow-md cursor-pointer"
-      onClick={handleSetExpanded}
-    >
-      <div className="flex justify-between">
+    <div className="m-2 bg-gray-200 p-6 rounded-lg shadow-md cursor-pointer">
+      <div className="flex justify-between" onClick={handleSetExpanded}>
         <h1 className="font-bold text-lg">
           {data.title} ({data.itemCards.length})
         </h1>

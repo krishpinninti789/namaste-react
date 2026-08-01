@@ -59,10 +59,12 @@ const Header = () => {
               Contact
             </li>
             <li className="flex flex-row rounded-full px-4 py-2 text-slate-600 relative">
-              <ShoppingCart className="relative" />{" "}
-              <span className="absolute bg-blue-950 text-white rounded-full py-1 px-2 right-2 -top-2">
-                {items.length}
-              </span>
+              <Link to="/cart">
+                <ShoppingCart className="relative" />{" "}
+                <span className="absolute bg-blue-950 text-white rounded-full py-1 px-2 right-2 -top-2">
+                  {items.length}
+                </span>
+              </Link>
             </li>
             <li>
               <button
