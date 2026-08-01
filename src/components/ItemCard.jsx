@@ -123,7 +123,7 @@ const ItemCard = ({ itemData }) => {
           {/* Add Button */}
           <button
             disabled={!inStock}
-            className={`mt-6 rounded-xl px-8 py-3 text-sm font-semibold transition ${
+            className={`mt-6 rounded-xl px-8 py-3 text-sm font-semibold transition cursor-pointer ${
               inStock
                 ? "bg-orange-500 text-white hover:bg-orange-600"
                 : "cursor-not-allowed bg-gray-300 text-gray-600"
