@@ -57,6 +57,6 @@ export const resList = [
     cuisines: ["South Indian", "Sweets"],
     avgRating: "4.6",
     costForTwo: "₹300 for two",
-    deliveryTime: 20,
+    deliveryTime: 50,
   },
 ];
