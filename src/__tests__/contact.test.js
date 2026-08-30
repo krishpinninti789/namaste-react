@@ -7,3 +7,11 @@ test("Contact us component loaded", () => {
   const heading = screen.getByRole("heading");
   expect(heading).toBeInTheDocument();
 });
+
+test("Should be have two input boxes", () => {
+  render(<ContactUs />);
+
+  const inputBoxes = screen.getAllByRole("textbox");
+
+  expect(inputBoxes.length).toBe(2);
+});
