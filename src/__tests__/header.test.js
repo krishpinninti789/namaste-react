@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Header from "../components/Header";
 import { Provider } from "react-redux";
 import appStore from "../utils/appStore";
@@ -13,4 +13,13 @@ it("Should render header component", () => {
       </Provider>
     </BrowserRouter>,
   );
+
+  const loginButton = screen.getByRole("button", { name: "login" });
+  expect(loginButton).toBeInTheDocument();
+
+  fireEvent.click(loginButton);
+
+  const logoutButton = screen.getByRole("button", { name: "logout" });
+
+  expect(logoutButton).toBeInTheDocument();
 });
