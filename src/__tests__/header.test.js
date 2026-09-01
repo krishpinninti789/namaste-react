@@ -22,4 +22,8 @@ it("Should render header component", () => {
   const logoutButton = screen.getByRole("button", { name: "logout" });
 
   expect(logoutButton).toBeInTheDocument();
+
+  const aboutLink = screen.getByText("About");
+
+  expect(aboutLink).toBeInTheDocument();
 });
