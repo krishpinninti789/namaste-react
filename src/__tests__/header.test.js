@@ -23,7 +23,8 @@ it("Should render header component", () => {
 
   expect(logoutButton).toBeInTheDocument();
 
-  const aboutLink = screen.getByText("About");
+  const aboutLink = screen.getByRole("link", { name: "About" });
 
   expect(aboutLink).toBeInTheDocument();
+  expect(aboutLink).toHaveAttribute("href", "/about");
 });
