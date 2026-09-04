@@ -1,45 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1788545849841" clover="3.2.0">
-  <project timestamp="1788545849841" name="All files">
-    <metrics statements="30" coveredstatements="25" conditionals="8" coveredconditionals="5" methods="12" coveredmethods="8" elements="50" coveredelements="38" complexity="0" loc="30" ncloc="30" packages="1" files="3" classes="3"/>
+<coverage generated="1788546557991" clover="3.2.0">
+  <project timestamp="1788546557991" name="All files">
+    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
     <file name="Body.jsx" path="C:\Users\KRISHNA VAMSI\namaste-react\src\components\Body.jsx">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="4" count="1" type="stmt"/>
       <line num="5" count="1" type="stmt"/>
-    </file>
-    <file name="RestaurantCard.jsx" path="C:\Users\KRISHNA VAMSI\namaste-react\src\components\RestaurantCard.jsx">
-      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <line num="2" count="2" type="stmt"/>
-      <line num="10" count="10" type="stmt"/>
-      <line num="11" count="10" type="cond" truecount="1" falsecount="1"/>
-      <line num="14" count="10" type="stmt"/>
-    </file>
-    <file name="RestaurantContainer.jsx" path="C:\Users\KRISHNA VAMSI\namaste-react\src\components\RestaurantContainer.jsx">
-      <metrics statements="24" coveredstatements="19" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="6"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
-      <line num="10" count="5" type="stmt"/>
-      <line num="12" count="5" type="stmt"/>
-      <line num="14" count="5" type="stmt"/>
-      <line num="15" count="5" type="stmt"/>
-      <line num="16" count="2" type="stmt"/>
-      <line num="19" count="5" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="22" count="9" type="stmt"/>
-      <line num="26" count="5" type="stmt"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="32" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="33" count="2" type="stmt"/>
-      <line num="36" count="3" type="cond" truecount="1" falsecount="1"/>
-      <line num="37" count="0" type="stmt"/>
-      <line num="49" count="3" type="stmt"/>
-      <line num="71" count="1" type="stmt"/>
-      <line num="72" count="1" type="stmt"/>
-      <line num="73" count="1" type="stmt"/>
-      <line num="80" count="0" type="stmt"/>
-      <line num="94" count="0" type="stmt"/>
-      <line num="102" count="9" type="stmt"/>
     </file>
   </project>
 </coverage>

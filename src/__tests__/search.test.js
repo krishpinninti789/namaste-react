@@ -21,6 +21,12 @@ it("Should render the search component in Body", async () => {
     );
   });
 
+  screen.debug();
+
+  const cards = await screen.findAllByTestId("resCardData");
+
+  console.log(cards.length);
+
   const searchText = screen.getByText("Search");
   expect(searchText).toBeInTheDocument();
 
@@ -29,10 +35,6 @@ it("Should render the search component in Body", async () => {
   const searchButton = screen.getByTestId("searchButton");
 
   fireEvent.change(searchInput, { target: { value: "biryani" } });
-
-  const cards = screen.getAllByTestId("resCardData");
-
-  console.log(cards);
 
   fireEvent.click(searchButton);
 });
