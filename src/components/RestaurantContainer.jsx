@@ -73,10 +73,12 @@ const RestaurantContainer = () => {
                 handleSearch(value);
               }}
               value={searchInput}
+              data-testid="searchInput"
             />
             <button
               className="rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-              onClick={handleSearch}
+              onClick={() => handleSearch(searchInput)}
+              data-testid="searchButton"
             >
               Search
             </button>

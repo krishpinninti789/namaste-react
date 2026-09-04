@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import Body from "../components/Body";
 import MOCK_DATA from "../mocks/resDataResponseMock.json";
 import { BrowserRouter } from "react-router-dom";
@@ -23,4 +23,16 @@ it("Should render the search component in Body", async () => {
 
   const searchText = screen.getByText("Search");
   expect(searchText).toBeInTheDocument();
+
+  const searchInput = screen.getByTestId("searchInput");
+
+  const searchButton = screen.getByTestId("searchButton");
+
+  fireEvent.change(searchInput, { target: { value: "biryani" } });
+
+  const cards = screen.getAllByTestId("resCardData");
+
+  console.log(cards);
+
+  fireEvent.click(searchButton);
 });

@@ -12,7 +12,10 @@ const RestaurantCard = (props) => {
     ? cloudinaryImageId
     : `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`;
   return (
-    <article className="group h-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl">
+    <article
+      className="group h-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+      data-testid="resCardData"
+    >
       <img
         className="h-48 w-full object-cover transition duration-300 group-hover:scale-105"
         src={imageSrc}
