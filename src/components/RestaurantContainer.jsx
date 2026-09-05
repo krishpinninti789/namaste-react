@@ -85,6 +85,7 @@ const RestaurantContainer = () => {
             <button
               className="rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700"
               onClick={handleFilterTopRated}
+              data-testid="Top-rated"
             >
               Top rated
             </button>

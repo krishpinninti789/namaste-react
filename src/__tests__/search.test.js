@@ -38,4 +38,12 @@ it("Should render the search component in Body", async () => {
 
   const cardsAfter = screen.getAllByTestId("resCardData");
   expect(cardsAfter.length).toBe(1);
+
+  const topRatedBtn = screen.getByTestId("Top-rated");
+
+  fireEvent.click(topRatedBtn);
+
+  const topRatedResCards = screen.getAllByTestId("resCardData");
+
+  expect(topRatedResCards.length).toBe(12);
 });
